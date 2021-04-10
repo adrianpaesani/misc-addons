@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 openNova - Juan Pablo Garza <juanp@opennova.com.ar>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+
+    <!-- List View-->
+    <record id="whatsapp_template_view_list" model="ir.ui.view">
+        <field name="name">Plantilla de whatsapp</field>
+        <field name="model">on.whatsapp.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="template_message" />
+                <field name="category" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="whatsapp_template_view_form" model="ir.ui.view">
+        <field name="name">Plantilla de whatsapp</field>
+        <field name="model">on.whatsapp.template</field>
+        <field name="arch" type="xml">
+            <form string="Plantilla de whatsapp">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Name" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="template_message" />
+                        <field name="category" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record id="whatsapp_template_action" model="ir.actions.act_window">
+        <field name="name">Plantillas de whatsapp</field>
+        <field name="res_model">on.whatsapp.template</field>
+        <!-- <field name="context">{'group_by': 'project_id'}</field> -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Technical Menu -->
+    <menuitem id="whatsapp_menu_main"
+        name="Whatsapp"
+        parent="base.menu_custom"
+        sequence="2"/>
+
+    <menuitem id="whatsapp_template_menu"
+        name="Plantillas de whatsapp"
+        parent="base_whatsapp.whatsapp_menu_main"
+        sequence="3"
+        action="whatsapp_template_action"/>
+</odoo>
