@@ -1,0 +1,11 @@
+partner_whatsapp/wizards/__pycache__/*.pyc
+partner_whatsapp/__pycache__/*.pyc
+partner_whatsapp/models/__pycache__/*.pyc
+hr_employee_whatsapp/wizards/__pycache__/*.pyc
+hr_employee_whatsapp/__pycache__/*.pyc
+hr_employee_whatsapp/models/__pycache__/*.pyc
+base_whatsapp/__pycache__/*.pyc
+base_whatsapp/models/__pycache__/*.pyc
+jitsi_meet/__pycache__/*.pyc
+jitsi_meet/models/__pycache__/*.pyc
+

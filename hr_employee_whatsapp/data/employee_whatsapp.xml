@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 openNova - Juan Pablo Garza <juanp@opennova.com.ar>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo noupdate="0">
+    <record model="on.whatsapp.template" id="hr_employee_whatsapp.data_whatsapp_employee_jitsi">
+        <field name="name">Jitsi</field>
+        <field name="template_message">Hola! Hacemos un jitsi? Hace clic acá: {jitsi}</field>
+        <field name="category">employee</field>
+    </record>
+</odoo>
