@@ -8,4 +8,4 @@ base_whatsapp/__pycache__/*.pyc
 base_whatsapp/models/__pycache__/*.pyc
 jitsi_meet/__pycache__/*.pyc
 jitsi_meet/models/__pycache__/*.pyc
-
+stock_picking_report_product_description/__pycache__/*.pyc

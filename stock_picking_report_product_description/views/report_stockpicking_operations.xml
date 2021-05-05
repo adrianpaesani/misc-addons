@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 openNova - Juan Pablo Garza <juanp@opennova.com.ar>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <template id="report_picking_expand" inherit_id="stock.report_picking">
+        <xpath expr="//tbody/t/t/tr/td[1]/span[1]" position="replace">
+            <span t-field="ml.move_id.name"/><br/>
+        </xpath>
+    </template>
+</odoo>
