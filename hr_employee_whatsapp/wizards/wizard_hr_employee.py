@@ -35,23 +35,17 @@ class SendWhatsappEmployee(models.TransientModel):
 
     @api.onchange('default_message_id')
     def _onchange_message(self):
-        employee_uid = self.env['hr.employee'].browse(self._context.get('uid'))
         employee_record = self.env['hr.employee'].browse(self._context.get('active_id'))
         message = self.default_message_id.template_message
         incluid_name = ''
         if not self.jitsi_link:
             self.jitsi_link = self.env['jitsi.meet'].sudo().create({'name':'Jitsi Meet'}).jitsi_link
-        
-        try:
-            incluid_name = str(message).format(
-                name=employee_record.name,
-                sales_person=employee_uid.name,
-                company=employee_uid.company_id.name,
-                website=employee_uid.company_id.website,
-                jitsi=self.jitsi_link)
-        except Exception:
-            raise ValidationError('Quick replies: parameter not allowed in this template, {link_preview} {item_product}')
-
+    
+        incluid_name = str(message).format(
+            name=employee_record.name,
+            company=employee_record.company_id.name,
+            website=employee_record.company_id.website,
+            jitsi=self.jitsi_link)
 
         if message:
             self.message = incluid_name
