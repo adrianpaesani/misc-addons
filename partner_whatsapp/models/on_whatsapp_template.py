@@ -7,4 +7,4 @@ from odoo import models, fields, api
 class WhatsappTemplate(models.Model):
     _inherit = 'on.whatsapp.template'
 
-    category = fields.Selection(selection_add=[('partner', 'Contacto')])
+    category = fields.Selection(selection_add=[('partner', 'Contactos')])

@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2021 openNova - Juan Pablo Garza <juanp@opennova.com.ar>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
-<odoo noupdate="0">
-    <record model="on.whatsapp.template" id="partner_whatsapp.data_whatsapp_partner">
-        <field name="name">Contacto</field>
-        <field name="template_message">Hola {name}, Te estoy escribiendo en nombre de la empresa *{company}*, si queres, me gustaría contarte acerca de ...</field>
+<odoo noupdate="1">
+    <record model="on.whatsapp.template" id="data_whatsapp_partner_template_0">
+        <field name="name">Ejemplo Contactos</field>
+        <field name="template_message">
+            Esta es una plantilla de ejemplo de la categoría: Empleados
+            Los campos que se pueden utilizar dentro de esta categoría son:
+                *Nombre:* {name}
+                *Empresa:* {company}
+                *Sitio Web:* {website}
+                *Vendedor:* {sales_person}
+                *Link a jitsi:* {jitsi}
+        </field>
         <field name="category">partner</field>
-    </record>
-    <record model="on.whatsapp.template" id="partner_whatsapp.data_whatsapp_partner_jitsi">
-        <field name="name">Jitsi</field>
-        <field name="template_message">Hola! Hacemos un jitsi? Hace clic acá: {jitsi}</field>
-        <field name="category">partner</field>
+        <field name="active">0</field>
     </record>
 </odoo>

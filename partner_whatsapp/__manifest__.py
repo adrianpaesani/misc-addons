@@ -4,7 +4,7 @@
 {
     "name": "Partner whatsapp integrations",
     "summary": "Integrate whatsapp with partner",
-    "version": "13.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Customer Relationship Management",
     "website": "https://github.com/OpenNovaSoft/misc-addons",
     "author": "openNova",
