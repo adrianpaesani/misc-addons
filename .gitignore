@@ -9,3 +9,12 @@ base_whatsapp/models/__pycache__/*.pyc
 jitsi_meet/__pycache__/*.pyc
 jitsi_meet/models/__pycache__/*.pyc
 stock_picking_report_product_description/__pycache__/*.pyc
+invoice_whatsapp/wizards/__pycache__/*.pyc
+invoice_whatsapp/__pycache__/*.pyc
+invoice_whatsapp/models/__pycache__/*.pyc
+picking_whatsapp/wizards/__pycache__/*.pyc
+picking_whatsapp/__pycache__/*.pyc
+picking_whatsapp/models/__pycache__/*.pyc
+sale_whatsapp/wizards/__pycache__/*.pyc
+sale_whatsapp/__pycache__/*.pyc
+sale_whatsapp/models/__pycache__/*.pyc
