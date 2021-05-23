@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 openNova - Juan Pablo Garza <juanp@opennova.com.ar>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo noupdate="1">
+    <record model="on.whatsapp.template" id="picking_whatsapp.data_whatsapp_picking_template_0">
+        <field name="name">Ejemplo Transferencias</field>
+        <field name="template_message">
+            Esta es una plantilla de ejemplo de la categoría: Transferencias
+            Los campos que se pueden utilizar dentro de esta categoría son:
+                *Nombre:* {name}
+                *Empresa:* {company}
+                *Sitio Web:* {website}
+        </field>
+        <field name="category">picking</field>
+        <field name="active">0</field>        
+    </record>
+</odoo>
