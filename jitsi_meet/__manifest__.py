@@ -4,7 +4,7 @@
 {
     "name": "Jitsi Meet",
     "summary": "",
-    "version": "13.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Misc",
     "website": "https://github.com/OpenNovaSoft/misc-addons",
     "author": "openNova",
