@@ -19,9 +19,9 @@
                     />
 
                 </div>
-                <xpath expr="//field[@name='user_id']" position="after">
+                <!-- <xpath expr="//field[@name='user_id']" position="after">
                     <field name="user_partner_id"/>
-                </xpath>
+                </xpath> -->
             </field>
         </record>
 </odoo>

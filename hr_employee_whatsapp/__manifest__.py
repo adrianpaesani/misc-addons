@@ -4,7 +4,7 @@
 {
     "name": "Employee whatsapp integrations",
     "summary": "Integrate whatsapp with hr employee's",
-    "version": "13.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Human Resources",
     "website": "https://github.com/OpenNovaSoft/misc-addons",
     "author": "openNova",
