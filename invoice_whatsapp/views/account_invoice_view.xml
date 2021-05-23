@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 openNova - Juan Pablo Garza <juanp@opennova.com.ar>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="invoice_form_extend" model="ir.ui.view">
+            <field name="name">account.invoice.extend</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+           <xpath expr="//header" position="inside">
+               <field name="send_whatsapp" invisible="1"/>
+                <button name="send_whatsapp_step" 
+                        groups="base_whatsapp.group_on_whatsapp_user" 
+                        class="btn btn-primary" 
+                        string="Enviar Whatsapp"
+                        attrs="{'invisible' : ['|', '|', ('state', 'in', ('draft','cancel')), ('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('send_whatsapp', '!=', 'without_sending')]}"
+                        type="object"/>
+               <button name="send_whatsapp_step" 
+                        groups="base_whatsapp.group_on_whatsapp_user" 
+                        class="btn btn-success" 
+                        string="Factura enviada" 
+                        icon="fa-whatsapp"
+                        attrs="{'invisible' : ['|', '|', ('state', 'in', ('draft','cancel')), ('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('send_whatsapp', '!=', 'sent')]}"
+                        type="object"/>
+               <button name="send_whatsapp_step" 
+                        groups="base_whatsapp.group_on_whatsapp_user"
+                        class="btn" 
+                        string="Factura no enviada"
+                        icon="fa-whatsapp"
+                        attrs="{'invisible' : ['|', '|', ('state', 'in', ('draft','cancel')), ('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('send_whatsapp', '!=', 'not_sent')]}"
+                        type="object"/>
+           </xpath>
+            </field>
+        </record>
+</odoo>
