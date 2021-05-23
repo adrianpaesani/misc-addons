@@ -10,3 +10,5 @@ class WhatsappTemplate(models.Model):
     name = fields.Char(string="Nombre")
     template_message = fields.Text(string="Mensaje")
     category = fields.Selection([('other', 'Other')], default='other', string="Categoría")
+
+    active = fields.Boolean(string="Archivada", default=True)
