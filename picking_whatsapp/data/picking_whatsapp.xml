@@ -10,6 +10,7 @@
                 *Nombre:* {name}
                 *Empresa:* {company}
                 *Sitio Web:* {website}
+                *Facturas:* {invoice}
         </field>
         <field name="category">picking</field>
         <field name="active">0</field>        
