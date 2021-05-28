@@ -16,7 +16,15 @@ class SendWhatsappEmployee(models.TransientModel):
     _description = 'Enviar whatsapp a empleado'
 
     employee_id = fields.Many2one('hr.employee')
-    default_message_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'employee')]")
+
+    def _default_default_message_id(self):
+        default_message_id = self.env['on.whatsapp.template'].search([('category', '=', 'employee')])
+        if default_message_id:
+            return default_message_id[0]
+        else:
+            False
+    
+    default_message_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'employee')]", default=_default_default_message_id)
 
     name = fields.Char(related='employee_id.name')
     mobile_phone = fields.Char(related='employee_id.mobile_phone',help="use country mobile code without the + sign")

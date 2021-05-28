@@ -9,6 +9,7 @@
         <field name="model">on.whatsapp.template</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="sequence" widget="handle"/>
                 <field name="name" />
                 <field name="template_message" />
                 <field name="category" />

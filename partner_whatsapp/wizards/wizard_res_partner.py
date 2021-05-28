@@ -16,7 +16,15 @@ class SendWhatsappPartner(models.TransientModel):
     _description = 'Envío de whatsapp'
 
     partner_id = fields.Many2one('res.partner', domain="[('parent_id','=',partner_id)]")
-    default_messege_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'partner')]")
+
+    def _default_default_message_id(self):
+        default_message_id = self.env['on.whatsapp.template'].search([('category', '=', 'partner')])
+        if default_message_id:
+            return default_message_id[0]
+        else:
+            False
+    
+    default_messege_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'partner')]", default=_default_default_message_id)
 
     name = fields.Char(related='partner_id.name')
     mobile = fields.Char(related='partner_id.mobile',help="use country mobile code without the + sign")

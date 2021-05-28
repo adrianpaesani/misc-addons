@@ -16,7 +16,15 @@ class SendWhatsappPicking(models.TransientModel):
     _description = 'Enviar whatsapp a contacto'
 
     partner_id = fields.Many2one('res.partner')
-    default_message_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'picking')]")
+
+    def _default_default_message_id(self):
+        default_message_id = self.env['on.whatsapp.template'].search([('category', '=', 'picking')])
+        if default_message_id:
+            return default_message_id[0]
+        else:
+            False
+    
+    default_message_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'picking')]", default=_default_default_message_id)
 
     name = fields.Char(related='partner_id.name')
     mobile_phone = fields.Char(related='partner_id.mobile',help="use country mobile code without the + sign")
@@ -46,6 +54,7 @@ class SendWhatsappPicking(models.TransientModel):
     def _onchange_message(self):
         # employee_record = self.env['hr.employee'].browse(self._context.get('active_id'))
         partner_record = self.partner_id
+        picking_record = self.env['stock.picking'].browse(self.env.context['active_id'])
         message = self.default_message_id.template_message
         incluid_name = ''
         # if not self.jitsi_link:
@@ -54,7 +63,8 @@ class SendWhatsappPicking(models.TransientModel):
         incluid_name = str(message).format(
             name=partner_record.name,
             company=partner_record.company_id.name,
-            website=partner_record.company_id.website)
+            website=partner_record.company_id.website,
+            invoice=', '.join(picking_record.invoice_ids.mapped('display_name')))
 
         if message:
             self.message = incluid_name

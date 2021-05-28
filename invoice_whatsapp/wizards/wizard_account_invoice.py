@@ -16,7 +16,15 @@ class SendWhatsappInvoice(models.TransientModel):
     _description = 'Enviar whatsapp a contacto'
 
     partner_id = fields.Many2one('res.partner')
-    default_message_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'invoice')]")
+
+    def _default_default_message_id(self):
+        default_message_id = self.env['on.whatsapp.template'].search([('category', '=', 'invoice')])
+        if default_message_id:
+            return default_message_id[0]
+        else:
+            False
+    
+    default_message_id = fields.Many2one('on.whatsapp.template', domain="[('category', '=', 'invoice')]", default=_default_default_message_id)
 
     name = fields.Char(related='partner_id.name')
     mobile_phone = fields.Char(related='partner_id.mobile',help="use country mobile code without the + sign")
