@@ -64,7 +64,8 @@ class SendWhatsappPicking(models.TransientModel):
             name=partner_record.name,
             company=partner_record.company_id.name,
             website=partner_record.company_id.website,
-            invoice=', '.join(picking_record.invoice_ids.mapped('display_name')))
+            invoice=', '.join(picking_record.invoice_ids.mapped('display_name')),
+            sale_order=picking_record.sale_id.name)
 
         if message:
             self.message = incluid_name
