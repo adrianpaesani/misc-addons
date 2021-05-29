@@ -46,7 +46,8 @@ class SendWhatsappInvoice(models.TransientModel):
                 company=invoice_id.company_id.name,
                 website=invoice_id.company_id.website,
                 document_name=invoice_id.name,
-                link_preview=url_preview, )
+                link_preview=url_preview,
+                origin=invoice_id.origin )
 
         except Exception:
             raise ValidationError('Parámetro no permitido en esta plantilla')
