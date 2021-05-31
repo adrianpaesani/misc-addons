@@ -75,4 +75,13 @@
         parent="base_whatsapp.whatsapp_menu_main"
         sequence="3"
         action="whatsapp_template_action"/>
+
+    <menuitem id="whatsapp_app_menu"
+        name="Plantillas de whatsapp"
+        web_icon="base_whatsapp,static/description/whatsapp_icon.png"
+        action="whatsapp_template_action"
+        groups="base_whatsapp.group_on_whatsapp_manager"
+        sequence="9"
+        />
+
 </odoo>
