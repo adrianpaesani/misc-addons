@@ -61,7 +61,8 @@ class SendWhatsappPicking(models.TransientModel):
         #     self.jitsi_link = self.env['jitsi.meet'].sudo().create({'name':'Jitsi Meet'}).jitsi_link
     
         warehouse_partner_id = picking_record.picking_type_id.warehouse_id.partner_id
-        delivery_address = warehouse_partner_id.street + ' - ' + warehouse_partner_id.city
+        
+        delivery_address = "{} - {}".format(warehouse_partner_id.street,warehouse_partner_id.city)
 
         incluid_name = str(message).format(
             name=partner_record.name,
