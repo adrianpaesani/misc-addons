@@ -60,6 +60,9 @@ class SendWhatsappPicking(models.TransientModel):
         # if not self.jitsi_link:
         #     self.jitsi_link = self.env['jitsi.meet'].sudo().create({'name':'Jitsi Meet'}).jitsi_link
     
+        warehouse_partner_id = picking_record.picking_type_id.warehouse_id.partner_id
+        delivery_address = warehouse_partner_id.street + ' - ' + warehouse_partner_id.city
+
         incluid_name = str(message).format(
             name=partner_record.name,
             company=partner_record.company_id.name,
@@ -69,7 +72,9 @@ class SendWhatsappPicking(models.TransientModel):
             voucher_ids=', '.join(picking_record.voucher_ids.mapped('name')),
             date_done=picking_record.date_done.date().strftime("%d/%m/%Y") if picking_record.date_done else "",
             scheduled_date=picking_record.scheduled_date.date().strftime("%d/%m/%Y") if picking_record.scheduled_date else "",
-            number_of_packages=picking_record.number_of_packages
+            number_of_packages=picking_record.number_of_packages,
+            delivery_address = delivery_address,
+            warehouse = picking_record.picking_type_id.warehouse_id.name
             )
 
         if message:
