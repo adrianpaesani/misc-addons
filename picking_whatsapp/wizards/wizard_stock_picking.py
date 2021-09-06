@@ -68,7 +68,7 @@ class SendWhatsappPicking(models.TransientModel):
             name=partner_record.name,
             company=partner_record.company_id.name,
             website=partner_record.company_id.website,
-            invoice=', '.join(picking_record.invoice_ids.mapped('display_name')),
+            invoice=', '.join(picking_record.sale_id.invoice_ids.mapped('display_name')),
             sale_order=picking_record.sale_id.name,
             voucher_ids=', '.join(picking_record.voucher_ids.mapped('name')),
             date_done=picking_record.date_done.date().strftime("%d/%m/%Y") if picking_record.date_done else "",
